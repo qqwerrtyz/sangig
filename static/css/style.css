@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 body {
-    background-image: url("/static/images/bodyBG.png");
+    background-image: url("/static/images/bodyBg.png");
     background-size: cover; /* Растягивает изображение на весь экран */
     background-position: center; /* Центрирует изображение */
     background-repeat: no-repeat; /* Запрещает повторение */
