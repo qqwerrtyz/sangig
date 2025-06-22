@@ -4,8 +4,16 @@
     box-sizing: border-box;
 }
 body {
+<<<<<<< HEAD
 background: #D861C9;
 background: linear-gradient(90deg,rgba(216, 97, 201, 1) 0%, rgba(135, 66, 214, 1) 50%, rgba(216, 97, 201, 1) 100%);
+=======
+    background-image: url("/static/images/bodyBg.png");
+    background-size: cover; /* Растягивает изображение на весь экран */
+    background-position: center; /* Центрирует изображение */
+    background-repeat: no-repeat; /* Запрещает повторение */
+    background-attachment: fixed; /* Фон фиксируется при прокрутке */
+>>>>>>> b90ffac6d09045fd924132d4b3e6ddd9e06fbb75
 
     font-family: 'Montserrat', sans-serif;
     font-weight: 400; /* Regular */
