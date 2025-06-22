@@ -22,7 +22,7 @@
                     <h3 class="calculateHeadline">Введите параметры</h3>
                 </div>
 
-                <form class="calculateForm">
+                <form class="calculateForm" method="POST" action="/">
                     <div class="calculateInputs">
                         <div class="calculateInputWrapper">
                             <div class="calculateInputHeader">
@@ -55,6 +55,7 @@
                     <div class="laborIntensityWrapper">
                         <h4 class="laborIntensityTitle">Интенсивность труда</h4>
                         <div class="laborIntensityButtonWrapper">
+                            <input type="hidden" id="intensityInput" name="intensity" value="30">
                             <button class="laborIntensityButton" type="button" value="30" name="light">Легкая</button>
                             <button class="laborIntensityButton" type="button" value="27.5"
                                 name="moderate">Средняя</button>
@@ -69,7 +70,19 @@
                 </form>
 
                 <div class="resultWrapper">
+                    {% if error %}
+                    <h5 class="result error">{{ error }}</h5>
+                    {% elif result %}
+                    <h5 class="result">Результат: WBGT = {{ result.wbgt }}°C</h5>
+                    <div class="risk-level {{ result.risk|lower }}">
+                        Уровень риска: {{ result.risk }}
+                    </div>
+                    <div class="recommendation">
+                        {{ result.message }}
+                    </div>
+                    {% else %}
                     <h5 class="result">Результат:</h5>
+                    {% endif %}
                 </div>
             </div>
         </div> <!-- mainSection -->
@@ -77,20 +90,52 @@
     </div> <!-- mainSectionWrapper -->
 
     <script>
-        const intensityButtons = document.querySelectorAll('.laborIntensityButton');
 
-        // Добавляем обработчик клика на каждую кнопку
-        intensityButtons.forEach(button => {
-            button.addEventListener('click', function () {
-                // Удаляем класс active у всех кнопок
-                intensityButtons.forEach(btn => {
-                    btn.classList.remove('active');
+        function btnActive() {
+            const intensityButtons = document.querySelectorAll('.laborIntensityButton');
+
+            // Добавляем обработчик клика на каждую кнопку
+            intensityButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    // Удаляем класс active у всех кнопок
+                    intensityButtons.forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+
+                    // Добавляем класс active только к нажатой кнопке
+                    this.classList.add('active');
                 });
-
-                // Добавляем класс active только к нажатой кнопке
-                this.classList.add('active');
             });
-        });
+        }
+
+        function btnIntensity() {
+            const intensityButtons = document.querySelectorAll('.laborIntensityButton');
+            const intensityInput = document.getElementById('intensityInput');
+
+            // Обработчики для кнопок интенсивности
+            intensityButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    // Удаляем активный класс у всех кнопок
+                    intensityButtons.forEach(btn => btn.classList.remove('active'));
+
+                    // Добавляем активный класс текущей кнопке
+                    this.classList.add('active');
+
+                    // Обновляем значение скрытого поля
+                    intensityInput.value = this.value;
+                });
+            });
+
+            // Активируем первую кнопку по умолчанию
+            if (intensityButtons.length > 0) {
+                intensityButtons[0].classList.add('active');
+            }
+
+        }
+
+        btnActive()
+        btnIntensity()
+
 
     </script>
 </body>
