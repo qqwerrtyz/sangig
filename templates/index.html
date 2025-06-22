@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Сумматор чисел</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fonts.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.media.css') }}">
+
+</head>
+
+<body>
+    <div class="mainSectionWrapper">
+        <div class="mainSection">
+            <div class="sectionTitle">
+                <h1 class="title">Оценка тепловой нагрузки с помощью индекса <span class="titleWBGT">WBGT</span></h1>
+                <h2 class="authors">В разработке участвовали: Царенко Алексей, Альбина Хасанова и Валерия Егорова</h2>
+            </div> <!-- sectionTitle -->
+
+            <div class="sectionCalculate">
+                <div class="calculateHeader">
+                    <h3 class="calculateHeadline">Введите параметры</h3>
+                </div>
+
+                <form class="calculateForm">
+                    <div class="calculateInputs">
+                        <div class="calculateInputWrapper">
+                            <div class="calculateInputHeader">
+                                <img class="inputIcon" src="{{ url_for('static', filename='images/water.png') }}"
+                                    alt="water" />
+                                <span class="inputTitle">Смоченный термометр (°С)</span>
+                            </div>
+                            <input name="water" type="number" class="calculateInput" />
+                        </div> <!-- calculateInput -->
+
+                        <div class="calculateInputWrapper">
+                            <div class="calculateInputHeader">
+                                <img class="inputIcon" src="{{ url_for('static', filename='images/black.png') }}"
+                                    alt="black" />
+                                <span class="inputTitle">Черный шар (°С)</span>
+                            </div>
+                            <input name="black" type="number" class="calculateInput" />
+                        </div> <!-- calculateInput -->
+
+                        <div class="calculateInputWrapper">
+                            <div class="calculateInputHeader">
+                                <img class="inputIcon" src="{{ url_for('static', filename='images/air.png') }}"
+                                    alt="air" />
+                                <span class="inputTitle">Температура воздуха (°С)</span>
+                            </div>
+                            <input name="air" type="number" class="calculateInput" />
+                        </div> <!-- calculateInput -->
+                    </div> <!-- calculateInputs -->
+
+                    <div class="laborIntensityWrapper">
+                        <h4 class="laborIntensityTitle">Интенсивность труда</h4>
+                        <div class="laborIntensityButtonWrapper">
+                            <button class="laborIntensityButton" type="button" value="30" name="light">Легкая</button>
+                            <button class="laborIntensityButton" type="button" value="27.5"
+                                name="moderate">Средняя</button>
+                            <button class="laborIntensityButton" type="button" value="25.5"
+                                name="heavy">Тяжелая</button>
+                            <button class="laborIntensityButton" type="button" value="23.0" name="veryHeavy">Очень
+                                тяжелая</button>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="calculateButton">Рассчитать</button>
+                </form>
+
+                <div class="resultWrapper">
+                    <h5 class="result">Результат:</h5>
+                </div>
+            </div>
+        </div> <!-- mainSection -->
+
+    </div> <!-- mainSectionWrapper -->
+
+    <script>
+        const intensityButtons = document.querySelectorAll('.laborIntensityButton');
+
+        // Добавляем обработчик клика на каждую кнопку
+        intensityButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                // Удаляем класс active у всех кнопок
+                intensityButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                });
+
+                // Добавляем класс active только к нажатой кнопке
+                this.classList.add('active');
+            });
+        });
+
+    </script>
+</body>
+
+</html>

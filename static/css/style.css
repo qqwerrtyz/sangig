@@ -1,0 +1,208 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-image: url("../images/bodyBG.png");
+    background-size: cover; /* Растягивает изображение на весь экран */
+    background-position: center; /* Центрирует изображение */
+    background-repeat: no-repeat; /* Запрещает повторение */
+    background-attachment: fixed; /* Фон фиксируется при прокрутке */
+
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400; /* Regular */
+
+}
+
+/* Убирает стрелки для всех числовых полей */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Для Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* === mainSection === */
+
+.mainSectionWrapper {
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+
+}
+
+.mainSection {
+    display: flex;
+    justify-content: space-around;
+
+    /* justify-content: space-between; */
+}
+
+
+.sectionTitle {
+    width: 40%;
+    height: 100%;
+
+
+    color: #fff
+}
+
+.title {
+    font-size: 60px;
+    line-height: 70px;
+    font-weight: 400;
+}
+
+.titleWBGT {
+    cursor: pointer;
+
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.authors {
+    width: 70%;
+
+    padding: 10px;
+    margin-top: 30px;
+
+    font-size: 14px;
+
+    background-color: #9C6AD6;
+
+    border-radius: 10px;
+}
+
+/* sectionCalculate */
+.calculateHeadline {
+    font-size: 30px;
+    color: #1C1948;
+}
+
+.calculateForm {
+    margin-top: 20px;
+}
+
+.sectionCalculate {
+    background-color: #EEDAFF;
+
+    padding: 20px;
+
+    border-radius: 15px;
+}
+
+/* calculateInputs */
+.calculateInputs {
+    display: flex;
+    justify-content: space-between;
+
+    align-items: flex-end;
+}
+
+.calculateInputWrapper {
+    width: 30%;
+}
+
+.calculateInputHeader {
+    display: flex;
+    align-items: center;
+}
+
+.inputIcon {
+    width: 20px;
+    height: auto;
+}
+
+.inputTitle {
+    margin-left: 10px;
+
+    font-size: 14px;
+}
+
+.calculateInput {
+    width: 100%;
+    height: 40px;
+
+    margin-top: 10px;
+    padding: 0 10px;
+
+    font-size: 20px;
+
+    border: none;
+    border-radius: 10px;
+    outline: none;
+}
+.laborIntensityWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 20px;
+}
+
+.laborIntensityTitle {
+    font-size: 20px;
+    color: #1C1948;
+}
+
+.laborIntensityButton {
+    padding: 10px 20px;
+
+    font-size: 16px;
+    color: #211DA9;
+
+    border: none;
+
+    border-radius: 10px;
+    outline: none;
+
+    background-color: #DFCAFA;
+    
+    transition: .3s all;
+
+}
+
+.laborIntensityButton:hover {
+    opacity: .3;
+}
+
+.active {
+    background-color: #D3B0FF;
+}
+
+.calculateButton {
+    width: 100%;
+    height: 60px;
+
+    margin-top: 30px;
+
+    font-size: 22px;
+    color: #fff;
+    text-transform: uppercase;
+
+    border-radius: 15px;
+    border: none;
+    outline: none;
+
+    background-color: #E35DBB;
+
+    transition: .3s all;
+}
+
+.calculateButton:hover {
+    opacity: .3;
+}
+
+.resultWrapper {
+    margin-top: 30px;
+}
+
+.result {
+    font-size: 20px;
+}
