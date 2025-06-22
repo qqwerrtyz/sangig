@@ -17,7 +17,8 @@
     }
 
     .title {
-        font-size: 40px;
+                font-size: 35px;
+
         line-height: normal;
         text-align: center;
     }
@@ -43,7 +44,7 @@
     }
 
     .inputTitle {
-        font-size: 12px;
+        font-size: 11px;
     }
 
     .calculateInput {
@@ -55,12 +56,14 @@
     .laborIntensityTitle {
         font-size: 14px;
         text-align: center;
+
+        margin-right: 5px;
     }
 
     .laborIntensityButton {
         margin-top: 2px;
         padding: 10px;
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .calculateButton {
